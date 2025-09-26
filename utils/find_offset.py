@@ -3,6 +3,18 @@
 Find the file offset of a given string in a file.
 Needed for yolo patching string files since there is
 currently only a binary patch option.
+
+eg.
+
+```yaml
+static_files:
+  /etc/init.d/rcS:
+    type: binary_patch
+    # using find_offset.py "cos &"
+    file_offset: 2136
+    # ./str2hex.py "httpd -f -v -h /web/"
+    hex_bytes: "6874747064202d66202d76202d68202f7765622f"
+```
 """
 
 import sys
